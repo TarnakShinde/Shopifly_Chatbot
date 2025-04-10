@@ -1,12 +1,12 @@
-import nltk
+from nltk.tokenize import TreebankWordTokenizer
 from nltk.stem.porter import PorterStemmer
 import numpy as np
 
-nltk.download('punkt', download_dir='./nltk_data')
 stemmer = PorterStemmer()
+tokenizer = TreebankWordTokenizer()  # ✅ No 'punkt' required
 
 def tokenize(sentence):
-    return nltk.word_tokenize(sentence)
+    return tokenizer.tokenize(sentence)  # ✅ Uses Treebank tokenizer
 
 def stem(word):
     return stemmer.stem(word.lower())
