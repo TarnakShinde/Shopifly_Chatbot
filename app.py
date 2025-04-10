@@ -1,8 +1,19 @@
 from flask import Flask, request, jsonify
 from chat import get_response
 from flask_cors import CORS
+import os
+import nltk
 
-# Import your chatbot model and other necessary components
+# Set a custom NLTK data path inside your project directory
+NLTK_DATA_PATH = os.path.join(os.path.dirname(__file__), "nltk_data")
+os.makedirs(NLTK_DATA_PATH, exist_ok=True)
+nltk.data.path.append(NLTK_DATA_PATH)
+
+# Download punkt into that path if missing
+try:
+    nltk.data.find("tokenizers/punkt")
+except LookupError:
+    nltk.download("punkt", download_dir=NLTK_DATA_PATH)
 
 app = Flask(__name__)
 cors = CORS(app)
