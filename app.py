@@ -37,4 +37,4 @@ def chatbot_response():
         return jsonify({"response": "An error occurred."}), 500
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
