@@ -4,12 +4,12 @@ from flask_cors import CORS
 import os
 import nltk
 
-# Set a custom NLTK data path inside your project directory
+# Set up custom path for nltk_data
 NLTK_DATA_PATH = os.path.join(os.path.dirname(__file__), "nltk_data")
 os.makedirs(NLTK_DATA_PATH, exist_ok=True)
 nltk.data.path.append(NLTK_DATA_PATH)
 
-# Download punkt into that path if missing
+# Ensure punkt is downloaded in this folder
 try:
     nltk.data.find("tokenizers/punkt")
 except LookupError:

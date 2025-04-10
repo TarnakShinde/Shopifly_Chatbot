@@ -2,12 +2,7 @@ import nltk
 from nltk.stem.porter import PorterStemmer
 import numpy as np
 
-# ✅ Download 'punkt' only (NOT punkt_tab)
-try:
-    nltk.data.find("tokenizers/punkt")
-except LookupError:
-    nltk.download("punkt")
-
+nltk.download('punkt', download_dir='./nltk_data')
 stemmer = PorterStemmer()
 
 def tokenize(sentence):
