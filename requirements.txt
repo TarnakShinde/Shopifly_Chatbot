@@ -4,3 +4,4 @@ numpy
 tensorflow
 torch
 flask_cors
+nltk
